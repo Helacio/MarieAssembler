@@ -1,53 +1,53 @@
 		    Input
-		    Store cases		/Input casos
-		    Load cero		
-		    Store i			/i=0, inicializando i
+ 		    Store cases
+ 
+ 
+ Wbody1,		Load i
+ 		    Subt cases
+ 		    Skipcond 000
+ 		    Jump endwbody1
+ 		    Input
+ 		    Store a
+ 		    Input
+ 		    Store b
+ 
+ 		    Load cero
+ 		    Store suma
+ 		    Load a
+ 		    Store j
+ 	
+ Wbody2,		Load j
+ 		    Subt b
+ 		    Skipcond 800
+ 		    Jump cuentas
+ 		    JUMP endWbody2
+ 		
+ endWbody2,	Load i
+ 		    Add one
+ 		    Store i
+ 		    Jump outsuma
+ 
+ 
+ cuentas,	Load suma
+ 		    Add j
+ 		    Store suma
+ 		    load j
+ 		    Add one
+ 		    Store j
+ 		    Jump Wbody2
+ 
+ 
+ outsuma,	Load suma
+ 		Output
+		jump Wbody1
 
-
-Wbody1,		Load i			/
-		    Subt cases
-		    Skipcond 000	/i<casos?
-		    Jump endwbody1
-		    Input
-		    Store a			/input a
-		    Input
-		    Store b			/input b
-
-		    Load cero
-		    Store suma		/inicializa suma en cero
-		    Load a
-		    Store j			
-	
-Wbody2,		Load j			/Control j
-		    Subt b
-		    Skipcond 800
-		    Jump cuentas
-		    JUMP endWbody2
-		
-endWbody2,	Load i
-		    Add one
-		    Store i
-		    Jump Wbody1
-
-
-cuentas,	Load suma		/Calcula suma
-		    Add j
-		    Store suma
-		    load j
-		    Add one
-		    Store j
-		    Jump Wbody2
-
-
-endwbody1,	Load suma
-		    Output			/Imprimir suma
-		    Halt
-
-cases, 		DEC 10
-cero, 		DEC 0
-i, 			DEC 0
-suma, 		DEC 0
-a, 			DEC 0
-b, 			DEC 0
-j, 			DEC 0
-one, 		DEC 1
+ endwbody1,	Halt
+ 
+ cases, 	DEC 10
+ cero, 		DEC 0
+ i, 		DEC 0
+ suma, 		DEC 0
+ a, 		DEC 0
+ b, 		DEC 0
+ j, 		DEC 0
+ one, 		DEC 1
