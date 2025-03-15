@@ -1,0 +1,101 @@
+/ Hernán David Sánchez
+            Input
+            Store casos
+
+Loop1,      Load i
+            Subt casos
+            Skipcond 000        /i<casos?
+            Jump EndLoop1       /no
+            Input
+            Store a             /input a
+            Input
+            Store b             /input b
+            Input
+            Store c             /input c
+			Load cero           /Inicializar variables en cero
+			Store j
+			Store k
+			Store result
+			Store disc
+			Store result
+			Jump bNegative
+
+bNegative,	Load cero       /Cuando b es negativo
+			Store k
+			Store square
+			Load b
+			Skipcond 000    /b<0?
+            Jump bsquare    /no
+			Load cero       /si
+			Subt b
+			Store b
+			Jump bsquare
+
+bsquare,		Load k              /Calcula b^2
+				Subt b
+				SkipCond 000        /k<b?
+				Jump multac         /no
+				Load square         /si
+				Add b
+				Store square
+				Load k
+				Add one
+				Store k
+				Jump bsquare
+
+fourTimes,		Load square         /Calcula b^2-4ac
+				Subt result         /b^2-(ac)
+                Subt result         /b^2-2(ac)
+                subt result         /b^2-3(ac)
+                subt result         /b^2-4(ac)
+                Store disc         /disc = -4(a*c)
+                Load i 
+                Add one
+                Store i 
+                Jump IsMinor        /Compare cada caso
+
+multac,		Load j          /Calcula multiplicacion a*c
+            Subt a
+            Skipcond 000        /j<a?
+            Jump fourTimes      /no
+            Load result         /si
+            Add c
+            Store result        /result = ac
+            Load j 
+            Add one
+            Store j
+            Jump multac
+
+IsMinor,    Load disc           
+            Skipcond 000        /disc < 0
+            Jump IsMayor        /no
+            Load cero           /si
+            Output
+            Jump Loop1
+
+IsMayor,    Load disc           /Si disc >0
+            Skipcond 800
+            Jump IsCero
+            Load two
+            Output
+            Jump Loop1
+
+IsCero,     Load one        /Ultimo caso disc = 0
+            Output          /Por descarte
+            Jump Loop1
+
+EndLoop1, Halt
+
+i,  DEC 0
+j,  DEC 0
+k,	DEC 0
+a,  DEC 0
+b,  DEC 0
+c,  DEC 0
+result, DEC 0
+cero,   DEC 0
+one,    DEC 1
+two,    DEC 2
+casos,  DEC 0
+disc,   DEC 0
+square,	DEC 0
