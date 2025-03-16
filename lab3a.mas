@@ -1,53 +1,55 @@
-		    Input
-		    Store cases
-		    Load cero
-		    Store i
+/ HERNAN DAVID SANCHEZ ALARCON
+		    
+		Input
+ 		    Store cases
+ 
+ 
+ Wbody1,		Load i		/Bucle para casos
+ 		    Subt cases		
+ 		    Skipcond 000
+ 		    Jump endwbody1	/i<casos?
+ 		    Input
+ 		    Store a		/input a
+ 		    Input
+ 		    Store b		/input b
+ 
+ 		    Load cero
+ 		    Store suma
+ 		    Load a
+ 		    Store j
+ 	
+ Wbody2,		Load j		/j=a
+ 		    Subt b
+ 		    Skipcond 800	/a<=b = NOT(a>b) 
+ 		    Jump cuentas	/no
+ 		    JUMP endWbody2	/si
+ 		
+ endWbody2,	Load i			/ya calcula la suma
+ 		    Add one		/posteriormente suma 1 a i
+ 		    Store i
+ 		    Jump outsuma	
+ 
+ 
+ cuentas,	Load suma		/calcula suma
+ 		    Add j
+ 		    Store suma
+ 		    load j
+ 		    Add one
+ 		    Store j
+ 		    Jump Wbody2		/cotinue agregando j+1
+ 
+ 
+ outsuma,	Load suma		
+ 		Output			/output suma
+		jump Wbody1		/inicia el otro caso
 
-
-Wbody1,		Load i
-		    Subt cases
-		    Skipcond 000
-		    Jump endwbody1
-		    Input
-		    Store a
-		    Input
-		    Store b
-
-		    Load cero
-		    Store suma
-		    Load a
-		    Store j
-	
-Wbody2,		Load j
-		    Subt b
-		    Skipcond 800
-		    Jump cuentas
-		    JUMP endWbody2
-		
-endWbody2,	Load i
-		    Add one
-		    Store i
-		    Jump Wbody1
-
-
-cuentas,	Load suma
-		    Add j
-		    Store suma
-		    load j
-		    Add one
-		    Store j
-		    Jump Wbody2
-
-
-endwbody1,	Load suma
-		    Output
-		    Halt
-
-cases, 		DEC 10
-cero, 		DEC 0
-i, 		DEC 0
-suma, 		DEC 0
-a, 		DEC 0
-b, 		DEC 0
-j, 		DEC 0
-one, 		DEC 1
+ endwbody1,	Halt
+ 
+ cases, 	DEC 10
+ cero, 		DEC 0
+ i, 		DEC 0
+ suma, 		DEC 0
+ a, 		DEC 0
+ b, 		DEC 0
+ j, 		DEC 0
+ one, 		DEC 1

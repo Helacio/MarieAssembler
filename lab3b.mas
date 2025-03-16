@@ -1,0 +1,79 @@
+		Input
+		Store casos		
+Start,		Load i
+		Subt casos
+		Skipcond 000		/i<casos?
+		Jump endProgram		/no
+		Jump Startbody		/si
+
+Startbody,	Input
+		Store a			/input a
+		Input
+		Store b			/input b
+		Input
+		Store c			/input c
+		Jump menor
+
+menor,		Load a
+		Subt b
+		Skipcond 000		/a<b?
+		Jump Bmenor		/no
+		Load a			/si
+		Store minor
+		Jump CompareC
+
+CompareC,	Load minor
+		Subt c
+		Skipcond 000		/minor<c
+		Jump Cmenor		/no
+		Load minor		/si
+		Jump defMayor
+
+Bmenor,		Load b			/si b es menor
+		Store minor
+		Jump CompareC
+
+Cmenor,		Load c			/si c es menor
+		Store minor
+		Jump defMayor
+
+defMayor,	Load a		
+		Subt b
+		Skipcond 800		/a > b
+		Jump Bmayor		/no
+		Load a			/si
+		Store major
+		Jump CompareC2
+		
+Bmayor, 	Load b			/asignar b como mayor
+		Store major
+		Jump CompareC2
+
+CompareC2,	Load major		/comparar con c para det mayor
+		Subt c
+		Skipcond 800
+		Jump Cmayor
+		Jump Sum
+
+Cmayor,		Load c
+		Store major
+		Jump Sum
+		
+Sum,		Load major		/imprima major
+		Add minor
+		Output
+		Load i
+		Add one
+		Store i
+		Jump Start
+
+endProgram,	Halt
+
+i,	DEC 0
+a,	DEC 0
+b, 	DEC 0
+c,	DEC 0
+minor, 	DEC 0
+major,	DEC 0
+one,	DEC 1
+casos, 	DEC 0
