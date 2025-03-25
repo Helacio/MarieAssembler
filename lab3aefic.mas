@@ -1,0 +1,53 @@
+/ HERNAN DAVID SANCHEZ ALARCON
+		    
+	    Input
+	    Store cases      /Casos
+
+Wbody1, Load i   	    /Bucle principal
+       Subt cases		
+       Skipcond 000     /i<casoss??
+       Jump endwbody1   /no
+       			        /si, haga todo lo de abajo
+       Input
+       Store a          /input a
+       Input
+       Store b          /input b
+       Load cero
+       Store suma       /inicializa suma en 0
+       
+       Load a           /dejar current = a
+       Store current
+       
+SumLoop, Load suma
+        Add current     /suma = suma+current
+        Store suma
+        
+        Load current
+        Add one         /current = current+1
+        Store current
+        
+        Load current
+        Subt one
+        Subt b          /Current compara con b
+        Skipcond 400    /Si ha llego a b, ha terminado!
+        Jump SumLoop    /Si no continua en bucle
+       
+        Load suma		
+        Output          /Output suma
+        
+        Load i
+        Add one
+        Store i         /i =i +1
+        
+        Jump Wbody1     /Siguiente caso
+ 
+endwbody1, Halt
+ 
+cases,   DEC 0
+cero,    DEC 0
+i,       DEC 0
+suma,    DEC 0
+a,       DEC 0
+b,       DEC 0
+current, DEC 0
+one,     DEC 1
