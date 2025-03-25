@@ -1,10 +1,10 @@
 / HERNAN DAVID SANCHEZ ALARCON
 		    
-		Input
+		    Input
  		    Store cases
  
  
- Wbody1,		Load i		/Bucle para casos
+ Wbody1,	Load i		/Bucle para casos
  		    Subt cases		
  		    Skipcond 000
  		    Jump endwbody1	/i<casos?
@@ -18,7 +18,7 @@
  		    Load a
  		    Store j
  	
- Wbody2,		Load j		/j=a
+ Wbody2,	Load j		/j=a
  		    Subt b
  		    Skipcond 800	/a<=b = NOT(a>b) 
  		    Jump cuentas	/no
